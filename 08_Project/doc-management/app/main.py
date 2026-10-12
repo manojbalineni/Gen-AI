@@ -7,8 +7,10 @@ sys.path.append(BASE_DIR)
 
 
 from db.database import init_db
+from core.services import DocumentService
 
 init_db()
+document_service = DocumentService()
 
 slt.set_page_config(
   page_title = "Doc Manager",
@@ -29,12 +31,18 @@ with tabs[0]:
   lecture_date = slt.date_input("Lecture Date (Optional)" , value = None)
 
   if slt.button("Upload"):
-    if not uploaded_file:
+    if uploaded_file:
+      document_service.upload_documents(uploaded_file , tags , description , lecture_date)
       pass
+    else:
+      slt.error("Please upload the file")
+
 
 with tabs[1]:
   slt.write("Logic for viewing the file")
   pass
+
+
 
 with tabs[2]:
   slt.write("Logic for file analytics")

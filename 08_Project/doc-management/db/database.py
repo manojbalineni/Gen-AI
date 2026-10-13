@@ -17,6 +17,7 @@ def init_db():
     name text,
     path text,
     thumbnail_path text,
+    tags text,
     description text,
     upload_date text,
     lecture_date text,

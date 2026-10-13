@@ -1,4 +1,5 @@
 from db.database import get_connection
+from core.models import Document
 
 
 
@@ -8,7 +9,7 @@ class DocumentRepository:
     pass
 
 
-  def save_document(self, doc):
+  def save_document(self, doc : Document):
     connection = get_connection()
     cursor = connection.cursor()
 
@@ -18,8 +19,53 @@ class DocumentRepository:
         lecture_date, total_pages
         )
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-      ''', (doc[0]), doc[1] , doc[2], doc[3], doc[4], doc[5], doc[6], doc[7])
+      ''', 
+        (doc.name,
+        str(doc.path),
+        str(doc.thumbnail_path),
+        doc.tags,
+        doc.description,
+        str(doc.upload_date),
+        str(doc.lecture_date) if doc.lecture_date else None,
+        doc.total_pages)
+      )
 
     connection.commit()
     connection.close()
+
+  def get_document(self , tag = None, date = None):
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    query = "Select * from documents"
+    conditions = []
+    parameters = []
+
+    if tag:
+      conditions.append("tags like ?")
+      parameters.append(f"%{tag}%")
+
+    if date:
+      conditions.append("lecture_date = ?")
+      parameters.append(date)
+
+
+    if conditions:
+      last_part = " OR ".join(conditions)
+      query += " WHERE " + last_part
+
+    cursor.execute(query , parameters)
+
+    rows = cursor.fetchall()
+    connection.close()
+
+    return [Document(*row)  for row in rows]  # List of document objects
+
+  
+
+
+
+
+
+
 

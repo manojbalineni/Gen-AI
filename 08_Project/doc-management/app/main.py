@@ -8,6 +8,7 @@ sys.path.append(BASE_DIR)
 
 from db.database import init_db
 from core.services import DocumentService
+from core.analytics import AnalyticsService
 
 
 if "selected_doc" not in slt.session_state:
@@ -22,11 +23,12 @@ if "search_results" not in slt.session_state:
   slt.session_state.search_results = []
 
 if "reader_mode" not in slt.session_state:
-  slt.session_state_reader_model = False
+  slt.session_state.reader_mode = False
 
 
 init_db()
 document_service = DocumentService()
+analytics_service = AnalyticsService()
 
 slt.set_page_config(
   page_title = "Doc Manager",
@@ -132,25 +134,30 @@ with tabs[1]:
           slt.image(img_path , width = "stretch")
 
           slt.write(f"FILE : {doc.name}")
+          analytics_service.record_page_visit(doc.id , slt.session_state.current_page)
+
+          unique_pages = analytics_service.get_unique_pages_viewed(doc.id)
+          progress = (unique_pages / doc.total_pages) * 100 if doc.total_pages else 0
+
+          slt.progress(progress / 100)
+
+          slt.write(f"Progress : {progress:.2f}% ({unique_pages}/{doc.total_pages})")
+          
+
+
 
         with col3:
           if(slt.button("Next") and current_page < total_pages - 1):
             slt.session_state.current_page += 1
             slt.rerun()
 
-
-
-
-
-
-
+      if slt.button("Close Reader"):
+        slt.session_state.reader_mode = False
+        slt.rerun()
+        
 
 
       
-
-
-    
-
 
 with tabs[2]:
   slt.write("Logic for file analytics")

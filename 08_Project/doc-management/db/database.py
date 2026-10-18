@@ -25,8 +25,16 @@ def init_db():
     )
 ''')
 
+  cursor.execute('''
+      create table if not exists page_visits(
+          id integer primary key autoincrement,
+          document_id integer,
+          page_number integer,
+          timestamp text
+      )
+''')
+
   connection.commit()
-  print("DB Connection success")
   connection.close()
 
 

@@ -1,99 +1,120 @@
-# Gen-AI Learning Journey 🚀
+# 🧠 Gen-AI Learning Journey
 
-My hands-on notes, notebooks, and practice code while learning **Generative AI**. I'm starting with the Python and data-science foundations (Python, OOP, NumPy, Pandas) and building up to LLMs, RAG, and agents.
+This repo tracks my path to learning **Generative AI**, starting with Python fundamentals and moving through data analysis, databases, statistics and feature engineering.
+It holds my notes, code examples, practice exercises and projects for each topic.
+
+---
 
 ## 📌 About
 
-This repository tracks my progress through a Gen AI course. Each numbered folder covers one topic, in the order I learned it. I add new folders as I finish new modules.
+Generative AI is built on strong foundations in **programming, data handling, statistics and machine learning**.
+I'm covering these step by step, one topic at a time, before moving on to advanced Gen-AI concepts.
+
+---
+
+## 🗺️ Learning Roadmap
+
+| #  | Topic               | Status       | Folder                                              |
+|----|---------------------|--------------|-----------------------------------------------------|
+| 01 | Python              | ✅ Completed | [`01_Python`](./01_Python)                           |
+| 02 | Python OOPS         | ✅ Completed | [`02_Python_OOPS`](./02_Python_OOPS)                 |
+| 03 | NumPy               | ✅ Completed | [`03_Numpy`](./03_Numpy)                             |
+| 04 | Pandas              | ✅ Completed | [`04_Pandas`](./04_Pandas)                           |
+| 05 | Data Visualisation  | ✅ Completed | [`05_Data_Visualisation`](./05_Data_Visualisation)   |
+| 06 | Database            | ✅ Completed | [`06_Database`](./06_Database)                       |
+| 07 | Streamlit           | ✅ Completed | [`07_Streamlit`](./07_Streamlit)                     |
+| 08 | Project             | ✅ Completed | [`08_Project`](./08_Project)                         |
+| 09 | Statistics          | ✅ Completed | [`09_Statistics`](./09_Statistics)                   |
+| 10 | Feature Engineering | ✅ Completed | [`10_Feature_Engineering`](./10_Feature_Engineering) |
+| 11 | _Coming soon..._    | ⏳ Planned   | —                                                   |
+
+**Legend:** ✅ Completed · 🚧 In Progress · ⏳ Planned
+
+---
 
 ## 📂 Repository Structure
 
 ```
 Gen-AI/
-├── .vscode/            # VS Code workspace settings
-├── 01_Python/          # Python fundamentals
-├── 02_Python_OOPS/     # Object-Oriented Programming in Python
-├── 03_Numpy/           # NumPy arrays and numerical computing
-├── 04_Pandas/          # Pandas for data analysis
+├── 01_Python/
+├── 02_Python_OOPS/
+├── 03_Numpy/
+├── 04_Pandas/
+├── 05_Data_Visualisation/
+├── 06_Database/
+├── 07_Streamlit/
+├── 08_Project/
+├── 09_Statistics/
+├── 10_Feature_Engineering/
+├── datasets/                 # Sample datasets used across topics
+├── .gitignore
 └── README.md
 ```
 
-## ✅ Progress Tracker
+---
 
-### Completed
+## 📝 Topic Notes
 
-- [x] **01 – Python**: syntax, data types, control flow, functions, and core concepts
-- [x] **02 – Python OOPS**: classes, objects, inheritance, encapsulation, polymorphism
-- [x] **03 – NumPy**: arrays, indexing, slicing, broadcasting, vectorized operations
-- [x] **04 – Pandas**: Series, DataFrames, data cleaning, filtering, groupby, merging
+#### 01. Python
+Core Python: data types, control flow, functions, data structures, file handling and error handling.
 
-### Upcoming
+#### 02. Python OOPS
+Object-oriented programming: classes, objects, inheritance, polymorphism, encapsulation and abstraction.
 
-- [ ] 05 – Data Visualization (Matplotlib, Seaborn)
-- [ ] 06 – Machine Learning basics (Scikit-learn)
-- [ ] 07 – Deep Learning fundamentals
-- [ ] 08 – NLP basics
-- [ ] 09 – Transformers and LLM fundamentals
-- [ ] 10 – Prompt Engineering
-- [ ] 11 – Embeddings and Vector Databases
-- [ ] 12 – Retrieval-Augmented Generation (RAG)
-- [ ] 13 – LangChain / LlamaIndex
-- [ ] 14 – AI Agents and Tool Calling
-- [ ] 15 – Building and deploying Gen AI apps
+#### 03. NumPy
+Fast numerical computing with arrays: indexing, slicing, broadcasting and mathematical operations.
 
-## 📝 What I've Learned So Far
+#### 04. Pandas
+Data analysis with Series and DataFrames: loading, cleaning, filtering, grouping and merging data.
 
-**Python**
-- Variables, data types, operators, conditionals, and loops
-- Functions, modules, and file handling
+#### 05. Data Visualisation
+Turning data into charts and plots to find patterns and share insights.
 
-**Python OOPS**
-- Classes and objects, constructors, and methods
-- Inheritance, polymorphism, encapsulation, and abstraction
+#### 06. Database
+Storing and querying data with SQL and connecting databases to Python.
 
-**NumPy**
-- Creating and reshaping n-dimensional arrays
-- Fast numerical operations with vectorization and broadcasting
+#### 07. Streamlit
+Building simple interactive web apps for data and AI projects in pure Python.
 
-**Pandas**
-- Loading and inspecting datasets (CSV, Excel)
-- Handling missing and duplicate data
-- Aggregation, grouping, sorting, and merging
+#### 08. Project
+A hands-on project that brings the previous topics together.
 
-## 🧰 Tech Stack
+#### 09. Statistics
+Descriptive and inferential statistics, probability and distributions: the maths behind ML.
 
-- Python 3
-- NumPy
-- Pandas
-- Jupyter Notebook / VS Code
+#### 10. Feature Engineering
+Preparing data for machine learning: handling missing values, encoding, scaling and feature selection.
 
-## ⚙️ Getting Started
+<!--
+#### 11. Topic Name
+Short description of the topic.
+-->
+
+---
+
+## 🛠️ Tech Stack
+
+- **Language:** Python 3.x
+- **Libraries:** NumPy, Pandas, Matplotlib, Seaborn, Streamlit
+- **Tools:** VS Code, Jupyter Notebook, SQL
+
+---
+
+## 🚀 Getting Started
 
 ```bash
-# Clone the repository
+# Clone the repo
 git clone https://github.com/manojbalineni/Gen-AI.git
 cd Gen-AI
 
-# (Optional) create a virtual environment
+# Create a virtual environment
 python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
+source venv/bin/activate      # On Windows: venv\Scripts\activate
 
-# Install dependencies
-pip install numpy pandas jupyter
-
-# Launch Jupyter
-jupyter notebook
+# Install the main libraries
+pip install numpy pandas matplotlib seaborn streamlit jupyter
 ```
 
-Then open the notebook or script from any topic folder and run it.
+---
 
-## 🎯 Goal
-
-To build a strong foundation in Python and data handling, then move on to building real-world Gen AI applications with LLMs, RAG, and agents.
-
-## 📬 Contact
-
-**Manoj Balineni**
-GitHub: [@manojbalineni](https://github.com/manojbalineni)
-
-⭐ Follow along as I keep learning and adding new modules!
+> _"Learning one step at a time."_ 🌱
